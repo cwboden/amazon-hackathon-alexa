@@ -28,6 +28,7 @@ var cookHandlers = Alexa.CreateStateHandler(states.COOK, require('./handlers/Rec
 exports.handler = (event, context) => {
     const alexa = Alexa.handler(event, context);
     alexa.appID = APP_ID;
+    alexa.dynamoDBTableName = 'SnackOverflow';
     alexa.registerHandlers(handlers, startHandlers, fridgeHandlers, cookHandlers);
     alexa.execute();
 }
