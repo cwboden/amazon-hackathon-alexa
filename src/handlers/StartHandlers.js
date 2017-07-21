@@ -5,11 +5,11 @@ var STATES = require('../util/state')
 var StartHandlers = {
     'FridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;
-        this.emitWithState('DefaultFridgeIntent');
+        this.emitWithState('Fridge');
     },
     'CookIntent': function () {
         this.handler.state = STATES.RECIPE_STATE;
-        this.emitWithState('DefaultRecipeIntent');
+        this.emitWithState('Cook');
     },
     'Unhandled': function () {
         //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
