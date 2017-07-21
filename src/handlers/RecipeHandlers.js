@@ -1,7 +1,7 @@
 var STATES = require('../util/state');
 
 var RecipeStateHandlers = Alexa.CreateStateHandler(STATES.RECIPE_STATE, {
-    'WhatCanIMakeIntent': function () {
+    'WhatShouldIMakeIntent': function () {
         // Get items from fridge
         // Pick random recipe based on ingredients
         // Have Alexa echo recipe name
