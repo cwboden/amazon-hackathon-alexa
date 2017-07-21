@@ -1,4 +1,3 @@
-var Alexa = require('alexa-sdk');
 var FRIDGE = require('../util/fridge');
 var STATES = require('../util/state');
 
