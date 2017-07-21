@@ -1,3 +1,5 @@
+alexa.resources = require("../languageStrings.js")
+
 var handlers = {
     'AMAZON.HelpIntent': function () {
         this.attributes['speechOutput'] = this.t("HELP_MESSAGE");
