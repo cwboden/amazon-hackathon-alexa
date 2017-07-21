@@ -23,11 +23,21 @@ var FridgeStateHandlers = Alexa.CreateStateHandler(STATES.FRIDGE_STATE, {
     },
     'AddToMyFridgeIntent': function () {
         // Gather items to add to fridge
+        var ingredients = this.event.request.intent.slots.Ingredients.value.split(" ");
+        console.log(ingredients);
         // Append to fridge object
+        for (var i = 0; i < ingredients.length; i++) {
+            FRIDGE.addItemToFridge(ingredient);
+        }
     },
     'RemoveFromMyFridgeIntent': function () {
         // Gather items to remove
+        var ingredients = this.event.request.intent.slots.Ingredients.value.split(" ");
+        console.log(ingredients);
         // Remove from fridge object
+        for (var i = 0; i < ingredients.length; i++) {
+            FRIDGE.removeItemFromFridge(ingredient);
+        }
     },
     'StartCookingIntent': function () {
         this.handler.state = STATES.RECIPE_STATE;
