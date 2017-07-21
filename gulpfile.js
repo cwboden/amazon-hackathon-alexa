@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     addsrc = require("gulp-add-src");
 
 gulp.task('scripts', function() {
-    return gulp.src(['src/**/*.js'])
+    return gulp.src(['src/**/*.js', 'src/**/*.js'])
         .pipe(addsrc('node_modules/**', { base: '.'}))
         .pipe(gulp.dest('./dist'));
 });

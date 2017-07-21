@@ -31,7 +31,8 @@ var FridgeStateHandlers = {
     'AddToMyFridgeIntent': function () {
         // Get item to add to fridge
         var ingredient = this.event.request.intent.slots.Ingredients.value;
-        var fridgeList = this.attributes['fridgeList'] || this.attributes['fridgeList'] = [];
+        if(this.attributes['fridgeList'] === undefined) this.attributes['fridgeList'] = [];
+        var fridgeList = this.attributes['fridgeList'];
         console.log(ingredient);
 
         // Check for existing item
@@ -49,7 +50,8 @@ var FridgeStateHandlers = {
         var ingredient = this.event.request.intent.slots.Ingredients.value;
         console.log(ingredients);
         // Remove from fridge object
-        var fridgeList = this.attributes['fridgeList'] || this.attributes['fridgeList'] = [];
+        if(this.attributes['fridgeList'] === undefined) this.attributes['fridgeList'] = [];
+        var fridgeList = this.attributes['fridgeList'];
         var index = fridgeList.indexOf(ingredient);
         if (index > -1) {
             this.attributes['fridgeList'] = fridgeList.splice(index, 1);
