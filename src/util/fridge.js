@@ -16,4 +16,4 @@ function removeItemFromFridge(item) {
     }
 }
 
-module.exports = [getItemsInFridge, addItemToFridge, removeItemFromFridge];
+module.exports = { getItemsInFridge, addItemToFridge, removeItemFromFridge };
