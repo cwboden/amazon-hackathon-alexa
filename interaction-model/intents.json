@@ -29,6 +29,12 @@
 	    	"type": "AMAZON.LITERAL"
 	      }
 	    ]
+	},
+	{
+	    "intent": "ConfirmRecipeIntent"
+	},
+	{
+	    "intent": "DenyRecipeIntent"
 	}
     ]
 }
