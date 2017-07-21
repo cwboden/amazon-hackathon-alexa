@@ -1,3 +1,32 @@
+var STATES = require('../util/state.js');
+
+var utilHandlers = Alexa.CreateStateHandler(STATES.START, {
+    'affirmativeIntent': function () {
+        doAffirmativeAction();
+    },
+    'negativeIntent': function () {
+        doNegativeAction();
+    },
+    'nextStepIntent': function () {
+        tellStep(currentRecipe, ++currentStep);
+    },
+    'repeatStepIntent': function () {
+        tellStep(currentRecipe, currentStep);
+    },
+    'Unhandled': function () {
+        //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
+    }
+
+});
+
+function suggestRecipe() {
+    var currentRecipe = getRandomRecipe();
+
+    this.emit(':tell', "Would you like to make ", currentRecipe.recipes.title);
+}
+
+module.exports = getRecipeHandlers;
+
 var utilHandlers = {
     'affirmativeIntent': function () {
         doAffirmativeAction();

@@ -1,0 +1,8 @@
+var WORKFLOW_STATES = {
+    START: 1,
+    RECIPE_PROPOSED: 2,
+    INGREDIENTS_PROPOSED: 3,
+    LIST_STEPS: 4
+};
+
+module.exports = WORKFLOW_STATES;
