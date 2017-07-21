@@ -7,7 +7,7 @@ var RecipeStateHandlers = {
         this.emit(":ask", "Welcome to cooking.", "What would you like to do?");
     },
     "FridgeIntent": function() {
-        this.handler.state = states.FRIDGE;
+        this.handler.state = states.FRIDGE_STATE;
         this.emitWithState("Fridge");
     },
     'WhatShouldIMakeIntent': function () {

@@ -11,7 +11,7 @@ var StartHandlers = {
         this.emitWithState('Fridge');
     },
     'CookIntent': function () {
-        this.handler.state = STATES.RECIPE_STATE;
+        this.handler.state = STATES.COOK_STATE;
         this.emitWithState('Cook');
     },
     'Unhandled': function () {
