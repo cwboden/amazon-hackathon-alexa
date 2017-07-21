@@ -20,6 +20,27 @@ GetWhatsInMyFridgeIntent what do i have in my fridge
 GetWhatsInMyFridgeIntent tell me what's in the fridge
 GetWhatsInMyFridgeIntent tell mew what is in the fridge
 
+AddToMyFridgeIntent add {Ingredients}
+AddToMyFridgeIntent i have {Ingredients}
+AddToMyFridgeIntent i have {Ingredients} in my fridge now
+AddToMyFridgeIntent add {Ingredients} to my fridge
+AddToMyFridgeIntent put {Ingredients} in my fridge
+AddToMyFridgeIntent i have {Ingredients} in the fridge now
+AddToMyFridgeIntent add {Ingredients} to the fridge
+AddToMyFridgeIntent put {Ingredients} in the fridge
+AddToMyFridgeIntent i bought {Ingredients} today
+AddToMyFridgeIntent i bought {Ingredients}
+
+RemoveFromMyFridgeIntent i used {Ingredients}
+RemoveFromMyFridgeIntent i don't have {Ingredients}
+RemoveFromMyFridgeIntent i no longer have {Ingredients}
+RemoveFromMyFridgeIntent remove {Ingredients} from the fridge
+RemoveFromMyFridgeIntent remove {Ingredients} from my fridge
+RemoveFromMyFridgeIntent remove {Ingredients}
+RemoveFromMyFridgeIntent take out {Ingredients}
+RemoveFromMyFridgeIntent take {Ingredients} out of the fridge
+RemoveFromMyFridgeIntent take {Ingredients} out of my fridge
+
 WhatShouldIMakeIntent what should i make
 WhatShouldIMakeIntent what should i make this morning
 WhatShouldIMakeIntent what should i make today
