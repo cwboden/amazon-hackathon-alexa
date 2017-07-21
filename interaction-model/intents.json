@@ -1,40 +1,46 @@
 {
-    "intents": [
+  "intents": [
+    {
+      "intent": "OpenMyFridgeIntent"
+    },
+    {
+      "intent": "GetWhatsInMyFridgeIntent"
+    },
+    {
+      "intent": "AddToMyFridgeIntent",
+      "slots": [
+        {
+          "name": "Ingredients",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "RemoveFromMyFridgeIntent",
+      "slots": [
+        {
+          "name": "Ingredients",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
 	{
-	    "intent": "GetWhatsInMyFridgeIntent"
-	},
-	{
-	    "intent": "AddToMyFridgeIntent",
-	    "slots": [
-	      {
-		"name": "Ingredients",
-		"type": "AMAZON.LITERAL"
-	      }
-   	    ]
-	},
-	{
-	    "intent": "RemoveFromMyFridgeIntent",
-	    "slots": [
-	      {
-		"name": "Ingredients",
-	     	"type": "AMAZON.LITERAL"
-	      }
-	    ]
-	},
-	{
-	    "intent": "WhatShouldIMakeIntent",
-	    "slots": [
-	      {
-		"name": "Ingredients",
-	    	"type": "AMAZON.LITERAL"
-	      }
-	    ]
-	},
-	{
-	    "intent": "ConfirmRecipeIntent"
-	},
-	{
-	    "intent": "DenyRecipeIntent"
-	}
+      "intent": "WhatShouldIMakeIntent",
+      "slots": [
+        {
+          "name": "Ingredients",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "YesIntent"
+    },
+    {
+      "intent": "NoIntent"
+    },
+    {
+      "intent": "StartCookingIntent"
+    }
     ]
 }
