@@ -2,21 +2,20 @@ var Alexa = require('alexa-sdk');
 
 var APP_ID = 'amzn1.ask.skill.933585d3-ba4a-49f9-baed-86e109c589ed';
 
-var SKILL_NAME = 'Google Home Mediator';
-var WAKE_PHRASES = ['Hey Google,', 'Okay Google,'];
+var SKILL_NAME = 'Snack Overflow';
+var POSSIBLE_RECIPIES = [ 'Chicken Parmesan', 'Spaghetti', 'Turkey Sandwich' ];
 
 exports.handler = function(event, context, callback) {
    var alexa = Alexa.handler(event, context, callback);
-   alexa.registerHandlers(askGoogleHandlers);
+   alexa.registerHandlers(getRecipieHandlers);
    alexa.execute();
 };
 
-var askGoogleHandlers = {
-   'AskGoogleHomeIntent': function() {
-      var request = this.event.request.intent.slots.request.value;
-
-      var wakeNum = Math.floor(Math.random() * 1.9);
-      this.emit(':tell', WAKE_PHRASES[wakeNum] + ' ' + request);
+var getRecipieHandlers = {
+   'whatShouldIMakeIntent': function() {
+       var recipieNum = Math.floor(Math.random() * POSSIBLE_RECIPIES.length);
+       
+       this.emit(':tell', POSSIBLE_RECIPIES[recipieNum]);
    }
 };
 
