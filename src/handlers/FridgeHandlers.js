@@ -29,21 +29,34 @@ var FridgeStateHandlers = {
         this.emit(":tell", "In your fridge, you currently have " + itemsStr);
     },
     'AddToMyFridgeIntent': function () {
-        // Gather items to add to fridge
+        // Get item to add to fridge
         var ingredient = this.event.request.intent.slots.Ingredients.value;
+        var fridgeList = this.attributes['fridgeList'] || this.attributes['fridgeList'] = [];
         console.log(ingredient);
-        // Append to fridge object
-        if (!this.attributes['fridgeList']) this.attributes['fridgeList'] = [];
-        this.attributes['fridgeList'].push(ingredient);
-        this.emit(":tell", "Added " + ingredient + " to your fridge.");
+
+        // Check for existing item
+        if (fridgeList.indexOf(ingredient) > -1) {
+            this.emit(":tell", "You already have " + ingredient + " in your fridge.");
+        }
+        else {
+            // Add to fridge list
+            fridgeList.push(ingredient);
+            this.emit(":tell", "Added " + ingredient + " to your fridge.");
+        }
     },
     'RemoveFromMyFridgeIntent': function () {
         // Gather items to remove
-        var ingredients = this.event.request.intent.slots.Ingredients.value.split(" ");
+        var ingredient = this.event.request.intent.slots.Ingredients.value;
         console.log(ingredients);
         // Remove from fridge object
-        for (var i = 0; i < ingredients.length; i++) {
-            FRIDGE.removeItemFromFridge(ingredient);
+        var fridgeList = this.attributes['fridgeList'] || this.attributes['fridgeList'] = [];
+        var index = fridgeList.indexOf(ingredient);
+        if (index > -1) {
+            this.attributes['fridgeList'] = fridgeList.splice(index, 1);
+            this.emit(":tell", "Removed " + ingredient + " from your fridge.");
+        }
+        else {
+            this.emit(":tell", "You don't have " + ingredient + " in your fridge.");
         }
     },
     "AMAZON.StopIntent": function() {
