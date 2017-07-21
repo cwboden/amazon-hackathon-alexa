@@ -9,7 +9,8 @@ var RandomRecipe = unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.m
                       console.log(result.status, result.headers, result.body);
                     });
 
-getRandomRecipe function() {
+function getRandomRecipe() {
+    sampleRecipe.recipes.instructions = sampleRecipe.recipes.instructions.split(".");
     return sampleRecipe;
 }
 

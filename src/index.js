@@ -18,8 +18,19 @@ var currentWorkflowState = WORKFLOW_STATES.START;
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context, callback);
     alexa.registerHandlers(getRecipeHandlers);
+    alexa.registerHandlers(getFridgeHandlers);
     alexa.registerHandlers(utilHandlers);
     alexa.execute();
+};
+
+var getFridgeHandlers = {
+    'AskWhatsInFridgeIntent': function () {
+        // get fridge list
+        // var fridge = [...........]
+
+        var strFridge = fridge.join();
+        this.emit(':tell', "You currently have " + strFridge);
+    }
 };
 
 var getRecipeHandlers = {
@@ -80,16 +91,6 @@ function doNegativeAction() {
             break;
     }
 }
-
-var getFridgeHandlers = {
-	'AskWhatsInFridgeIntent': function() {
-		// get fridge list
-		// var fridge = [...........]
-		
-		var strFridge = fridge.join();
-		this.emit(':tell', "You currently have " + strFridge);
-	}
-};
 
 function tellRecipe(recipe) {
     this.emit(":tell", "You will need");
