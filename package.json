@@ -1,0 +1,23 @@
+{
+  "name": "amazon-hackathon-alexa",
+  "version": "1.0.0",
+  "description": "Kitchen skill for Amazon Alexa",
+  "main": "index.js",
+  "dependencies": {
+    "alexa-sdk": "^1.0.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwboden/amazon-hackathon-alexa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwboden/amazon-hackathon-alexa/issues"
+  },
+  "homepage": "https://github.com/cwboden/amazon-hackathon-alexa#readme"
+}
