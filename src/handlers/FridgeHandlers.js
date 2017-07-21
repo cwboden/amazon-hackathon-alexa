@@ -1,4 +1,5 @@
 var STATES = require('../util/state');
+var FRIDGE = require('../util/fridge');
 
 var FridgeStateHandlers = Alexa.CreateStateHandler(STATES.FRIDGE_STATE, {
     'GetWhatsInMyFridgeIntent': function () {

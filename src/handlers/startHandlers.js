@@ -1,4 +1,5 @@
-var STATES = require('../util/state.js');
+var STATES = require('../util/state');
+var FRIDGE = require('../util/fridge')
 
 var StartHandlers = Alexa.CreateStateHandler(STATES.START, {
     'OpenMyFridgeIntent': function () {
