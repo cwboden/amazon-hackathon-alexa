@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "OpenMyFridgeIntent"
+      "intent": "FridgeIntent"
     },
     {
       "intent": "GetWhatsInMyFridgeIntent"
@@ -40,7 +40,7 @@
       "intent": "NoIntent"
     },
     {
-      "intent": "StartCookingIntent"
+      "intent": "CookIntent"
     }
     ]
 }

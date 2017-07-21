@@ -1,15 +1,20 @@
-OpenMyFridgeIntent open my fridge
-OpenMyFridgeIntent go to my fridge
-OpenMyFridgeIntent i would like to add ingredients
-OpenMyFridgeIntent fridge
-OpenMyFridgeIntent add ingredients
-OpenMyFridgeIntent add ingredients to my fridge
-OpenMyFridgeIntent open the fridge
-OpenMyFridgeIntent got to the fridge
-OpenMyFridgeIntent i would like to open my fridge
-OpenMyFridgeIntent i would like to go to my fridge
-OpenMyFridgeIntent i would like to go to the fride
-OpenMyFridgeIntent i would like to open the fridge
+FridgeIntent open my fridge
+FridgeIntent go to my fridge
+FridgeIntent i would like to add ingredients
+FridgeIntent fridge
+FridgeIntent add ingredients
+FridgeIntent add ingredients to my fridge
+FridgeIntent open the fridge
+FridgeIntent got to the fridge
+FridgeIntent i would like to open my fridge
+FridgeIntent i would like to go to my fridge
+FridgeIntent i would like to go to the fride
+FridgeIntent i would like to open the fridge
+FridgeIntent see my fridge
+FridgeIntent see fridge
+FridgeIntent i would like to see my fridge
+FridgeIntent i would like to see the fridge
+FridgeIntent see the fridge
 
 GetWhatsInMyFridgeIntent what's in my fridge
 GetWhatsInMyFridgeIntent what is in my fridge
@@ -264,12 +269,12 @@ NoIntent hold on
 NoIntent i'm not ready
 NoIntent no i'm not ready
 
-StartCookingIntent i'm ready to start cooking
-StartCookingIntent let's start cooking
-StartCookingIntent start cooking
-StartCookingIntent find me a recipe
-StartCookingIntent time to start cooking
-StartCookingIntent let's get going
-StartCookingIntent find a recipe
-StartCookingIntent cooking
-StartCookingIntent recipe
+CookIntent i'm ready to start cooking
+CookIntent let's start cooking
+CookIntent start cooking
+CookIntent find me a recipe
+CookIntent time to start cooking
+CookIntent let's get going
+CookIntent find a recipe
+CookIntent cooking
+CookIntent recipe
