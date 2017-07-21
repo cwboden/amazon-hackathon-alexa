@@ -65,6 +65,16 @@ function doNegativeAction() {
     }
 }
 
+var getFridgeHandlers = {
+	'AskWhatsInFridgeIntent': function() {
+		// get fridge list
+		// var fridge = [...........]
+		
+		var strFridge = fridge.join();
+		this.emit(':tell', "You currently have " + strFridge);
+	}
+};
+
 function tellRecipe(recipe) {
     /*
     this.emit(":tell", "You will need");
