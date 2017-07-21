@@ -1,4 +1,7 @@
 node_modules
+package-lock.json
+SnackOverflow.zip
+.DS_Store
 
 !node_modules/spoonacular
 !node_modules/spoonacular/*
