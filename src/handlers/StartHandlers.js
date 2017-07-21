@@ -1,5 +1,6 @@
 var Alexa = require('alexa-sdk');
 var FRIDGE = require('../util/fridge')
+var FRIDGE = require('../util/state')
 
 var newSessionHandlers = {
     // This will short-cut any incoming intent or launch requests and route them to this handler.
