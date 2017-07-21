@@ -22,20 +22,27 @@ exports.handler = function(event, context, callback) {
 };
 
 var getRecipeHandlers = {
-   'whatShouldIMakeIntent': function() {
-       var recipeNum = Math.floor(Math.random() * POSSIBLE_RECIPES.length);
-       currentRecipeName = POSSIBLE_RECIPES[recipeNum];
-
-       this.emit(':tell', "Would you like to make ", currentRecipeName);
-       currentWorkflowState = WORKFLOW_STATES.RECIPE_PROPOSED;
+    'whatShouldIMakeIntent': function () {
+        suggestRecipe();
    }
 };
 
 var utilHandlers = {
     'affirmativeIntent': function () {
         doAffirmativeAction();
+    },
+    'negativeIntent': function () {
+        doNegativeAction();
     }
 };
+
+function suggestRecipe() {
+    var recipeNum = Math.floor(Math.random() * POSSIBLE_RECIPES.length);
+    currentRecipeName = POSSIBLE_RECIPES[recipeNum];
+
+    this.emit(':tell', "Would you like to make ", currentRecipeName);
+    currentWorkflowState = WORKFLOW_STATES.RECIPE_PROPOSED;
+}
 
 function doAffirmativeAction() {
     switch (currentWorkflowState) {
@@ -44,6 +51,16 @@ function doAffirmativeAction() {
         case (WORKFLOW_STATES.RECIPE_PROPOSED):
             currentRecipe = getRecipeFromAPI(currentRecipeName);
             tellRecipe(currentRecipe);
+            break;
+    }
+}
+
+function doNegativeAction() {
+    switch (currentWorkflowState) {
+        case (WORKFLOW_STATES.START):
+            break;
+        case (WORKFLOW_STATES.RECIPE_PROPOSED):
+            suggestRecipe();
             break;
     }
 }
