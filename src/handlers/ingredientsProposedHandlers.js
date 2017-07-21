@@ -1,4 +1,5 @@
 var STATES = require('../util/state');
+var Alexa = require('alexa-sdk');
 
 var ingredientsProposedHandlers = Alexa.CreateStateHandler(STATES.INGREDIENTS_PROPOSED, {
     'yesIntent': function () {

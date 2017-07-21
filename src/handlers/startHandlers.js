@@ -1,4 +1,5 @@
 var STATES = require('../util/state.js');
+var Alexa = require('alexa-sdk');
 
 var startHandlers = Alexa.CreateStateHandler(STATES.START, {
     'whatShouldIMakeIntent': function () {

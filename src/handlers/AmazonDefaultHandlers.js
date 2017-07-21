@@ -1,6 +1,4 @@
-alexa.resources = require("../languageStrings.js")
-
-var handlers = {
+module.exports = {
     'AMAZON.HelpIntent': function () {
         this.attributes['speechOutput'] = this.t("HELP_MESSAGE");
         this.attributes['repromptSpeech'] = this.t("HELP_REPROMPT");
