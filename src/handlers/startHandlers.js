@@ -1,16 +1,11 @@
 var STATES = require('../util/state.js');
 
-var startHandlers = Alexa.CreateStateHandler(STATES.START, {
-    'whatShouldIMakeIntent': function () {
-        this.handler.state = STATES.RECIPE_PROPOSED;
-        suggestRecipe();
+var StartHandlers = Alexa.CreateStateHandler(STATES.START, {
+    'OpenMyFridgeIntent': function () {
+        this.handler.state = STATES.FRIDGE_STATE;
     },
-    'askWhatsInFridgeIntent': function () {
-        // get fridge list
-        // var fridge = [...........]
-
-        var strFridge = "no food";//fridge.join();
-        this.emit(':tell', "You currently have " + strFridge);
+    'FindARecipeIntent': function () {
+        this.handler.state = STATES.RECIPE_STATE;
     },
     'Unhandled': function () {
         //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
@@ -18,10 +13,4 @@ var startHandlers = Alexa.CreateStateHandler(STATES.START, {
 
 });
 
-function suggestRecipe() {
-    this.handler.currentRecipe = getRandomRecipe();
-
-    this.emit(':tell', "Would you like to make " + this.handler.currentRecipe.recipes.title);
-}
-
-module.exports = startHandlers;
+module.exports = StartHandlers;
