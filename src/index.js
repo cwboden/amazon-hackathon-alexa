@@ -1,6 +1,6 @@
 var Alexa = require('alexa-sdk');
 
-var APP_ID = 'amzn1.ask.skill.933585d3-ba4a-49f9-baed-86e109c589ed';
+var APP_ID = 'amzn1.ask.skill.85ae7ea2-b727-4d2a-9765-5c563a5ec379';
 
 var SKILL_NAME = 'Snack Overflow';
 var POSSIBLE_RECIPIES = [ 'Chicken Parmesan', 'Spaghetti', 'Turkey Sandwich' ];
