@@ -23,7 +23,7 @@ var FridgeStateHandlers = {
             itemsStr += allItems.length == 1 ? allItems[0] : "and " + allItems[i];
         }
 
-        this.echo(":tell", "In your fridge, you currently have " + itemsStr);
+        this.emit(":tell", "In your fridge, you currently have " + itemsStr);
     },
     'AddToMyFridgeIntent': function () {
         // Gather items to add to fridge
@@ -32,7 +32,7 @@ var FridgeStateHandlers = {
         // Append to fridge object
         if (!this.attributes['fridgeList']) this.attributes['fridgeList'] = [];
         this.attributes['fridgeList'].push(ingredient);
-        this.echo(":tell", "Added " + ingredient + " to your fridge.");
+        this.emit(":tell", "Added " + ingredient + " to your fridge.");
     },
     'RemoveFromMyFridgeIntent': function () {
         // Gather items to remove
