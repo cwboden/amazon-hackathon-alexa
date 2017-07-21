@@ -28,7 +28,7 @@
 	    ]
 	},
 	{
-	    "intent": "WhatShouldIMake" 
+	    "intent": "WhatShouldIMakeIntent" 
 	}
     ]
 }
