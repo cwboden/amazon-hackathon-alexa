@@ -5,7 +5,7 @@ FridgeIntent fridge
 FridgeIntent add ingredients
 FridgeIntent add ingredients to my fridge
 FridgeIntent open the fridge
-FridgeIntent got to the fridge
+FridgeIntent go to the fridge
 FridgeIntent i would like to open my fridge
 FridgeIntent i would like to go to my fridge
 FridgeIntent i would like to go to the fride
@@ -15,6 +15,7 @@ FridgeIntent see fridge
 FridgeIntent i would like to see my fridge
 FridgeIntent i would like to see the fridge
 FridgeIntent see the fridge
+FridgeIntent i want to go to the fridge
 
 GetWhatsInMyFridgeIntent what's in my fridge
 GetWhatsInMyFridgeIntent what is in my fridge
@@ -278,3 +279,6 @@ CookIntent let's get going
 CookIntent find a recipe
 CookIntent cooking
 CookIntent recipe
+CookIntent i want to start cook
+CookIntent i want to cook
+CookIntent cooking
