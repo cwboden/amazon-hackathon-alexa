@@ -1,3 +1,4 @@
+var Alexa = require('alexa-sdk');
 var STATES = require('../util/state');
 var FRIDGE = require('../util/fridge');
 
@@ -6,7 +7,7 @@ var FridgeStateHandlers = Alexa.CreateStateHandler(STATES.FRIDGE_STATE, {
         // Get ingredients from fridge
         var allItems = FRIDGE.getItemsInFridge();
         // Have Alexa echo out each ingredient
-        var i = 0; 
+        var i = 0;
         var itemsStr = allItems.length == 0 ? "nothing" : "";
         for (; i < allItems.length - 1; i++) {
             itemsStr += allItems[i] + ", ";
