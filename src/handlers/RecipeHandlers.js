@@ -2,6 +2,9 @@ var STATES = require('../util/state');
 var FRIDGE = require('../util/fridge');
 
 var RecipeStateHandlers = Alexa.CreateStateHandler(STATES.RECIPE_STATE, {
+    'DefaultFridgeIntent': function () {
+        this.emit(":ask", "Let's get cooking.", "Should I pick a random recipe for you?");
+    },
     'WhatShouldIMakeIntent': function () {
         // Get items from fridge
         var possibleIngredients = FRIDGE.getItemsInFridge();
@@ -10,6 +13,7 @@ var RecipeStateHandlers = Alexa.CreateStateHandler(STATES.RECIPE_STATE, {
     },
     'OpenMyFridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;
+        this.emit('DefaultFridgeIntent');
     },
     'Unhandled': function () {
         //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
