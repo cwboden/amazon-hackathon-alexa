@@ -1,10 +1,12 @@
 var gulp = require('gulp'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    zip = require('gulp-zip');
+    zip = require('gulp-zip'),
+    addsrc = require("gulp-add-src");
 
 gulp.task('scripts', function() {
-    return gulp.src(['src/**/*.js', 'node_modules'])
+    return gulp.src(['src/**/*.js'])
+        .pipe(addsrc('node_modules/**', { base: '.'}))
         .pipe(gulp.dest('./dist'));
 });
 
