@@ -1,3 +1,4 @@
+var Alexa = require('alexa-sdk');
 var STATES = require('../util/state');
 var FRIDGE = require('../util/fridge')
 
@@ -13,5 +14,11 @@ var StartHandlers = Alexa.CreateStateHandler(STATES.START, {
     }
 
 });
+
+function suggestRecipe() {
+    this.handler.currentRecipe = getRandomRecipe();
+
+    this.emit(':tell', "Would you like to make " + this.handler.currentRecipe.recipes.title);
+}
 
 module.exports = StartHandlers;
