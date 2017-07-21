@@ -81,12 +81,23 @@ function doNegativeAction() {
     }
 }
 
+var getFridgeHandlers = {
+	'AskWhatsInFridgeIntent': function() {
+		// get fridge list
+		// var fridge = [...........]
+		
+		var strFridge = fridge.join();
+		this.emit(':tell', "You currently have " + strFridge);
+	}
+};
+
 function tellRecipe(recipe) {
     this.emit(":tell", "You will need");
 
     for (var i = 0; i < recipe.extendedIngredients.length; i++) {
         this.emit(":tell", recipe.extendedIngredients[i].originalString);
     }
+<<<<<<< HEAD
 
     this.emit(":tell", "Do you have these ingredients?");
 }
@@ -96,3 +107,7 @@ function tellStep(recipe, step) {
     this.emit(":tell", recipe.instructions[step]);
     this.emit(":tell", "Tell me when you're ready for the next step, or if you need to hear that step again.");
 }
+=======
+    */
+}
+>>>>>>> 9841240931972f38e0cccd104cc0cc415b91aac6
