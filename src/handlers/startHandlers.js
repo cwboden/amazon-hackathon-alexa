@@ -1,17 +1,13 @@
-var STATES = require('../util/state.js');
 var Alexa = require('alexa-sdk');
+var STATES = require('../util/state');
+var FRIDGE = require('../util/fridge')
 
-var startHandlers = Alexa.CreateStateHandler(STATES.START, {
-    'whatShouldIMakeIntent': function () {
-        this.handler.state = STATES.RECIPE_PROPOSED;
-        suggestRecipe();
+var StartHandlers = Alexa.CreateStateHandler(STATES.START, {
+    'OpenMyFridgeIntent': function () {
+        this.handler.state = STATES.FRIDGE_STATE;
     },
-    'askWhatsInFridgeIntent': function () {
-        // get fridge list
-        // var fridge = [...........]
-
-        var strFridge = "no food";//fridge.join();
-        this.emit(':tell', "You currently have " + strFridge);
+    'FindARecipeIntent': function () {
+        this.handler.state = STATES.RECIPE_STATE;
     },
     'Unhandled': function () {
         //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
@@ -25,4 +21,4 @@ function suggestRecipe() {
     this.emit(':tell', "Would you like to make " + this.handler.currentRecipe.recipes.title);
 }
 
-module.exports = startHandlers;
+module.exports = StartHandlers;

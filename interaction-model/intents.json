@@ -13,7 +13,7 @@
    	    ]
 	},
 	{
-	    "intent": "RemoveIngredientIntent",
+	    "intent": "RemoveFromMyFridgeIntent",
 	    "slots": [
 	      {
 		"name": "Ingredients",
@@ -29,6 +29,12 @@
 	    	"type": "AMAZON.LITERAL"
 	      }
 	    ]
+	},
+	{
+	    "intent": "ConfirmRecipeIntent"
+	},
+	{
+	    "intent": "DenyRecipeIntent"
 	}
     ]
 }
