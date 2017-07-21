@@ -11,10 +11,9 @@ var currentWorkflowState = STATES.START;
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context, callback);
     alexa.registerHandlers(
-        require('./handlers/startHandlers'),
-        require('./handlers/recipeProposedHandlers'),
-        require('./handlers/ingredientsProposedHandlers'),
-        require('./handlers/listStepsHandler'),
-        require('./handlers/amazonDefaultHandlers'));
+        require('./handlers/StartHandlers'),
+        require('./handlers/FridgeHandlers'),
+        require('./handlers/RecipeHandlers'),
+        require('./handlers/AmazonDefaultHandlers'));
     alexa.execute();
 };
