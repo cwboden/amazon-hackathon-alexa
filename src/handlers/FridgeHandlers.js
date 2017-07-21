@@ -23,7 +23,7 @@ var FridgeStateHandlers = {
             itemsStr += allItems.length == 1 ? allItems[0] : "and " + allItems[i];
         }
 
-        this.echo(":tell", "In your fridge, you currently have " + itemsStr);
+        this.emit(":tell", "In your fridge, you currently have " + itemsStr);
     },
     'AddToMyFridgeIntent': function () {
         // Gather items to add to fridge
