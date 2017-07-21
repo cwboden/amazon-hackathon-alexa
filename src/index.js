@@ -22,8 +22,8 @@ var handlers = {
 };
 
 var startHandlers = Alexa.CreateStateHandler(states.START, require('./handlers/StartHandlers.js'));
-var fridgeHandlers = Alexa.CreateStateHandler(states.FRIDGE, require('./handlers/FridgeHandlers.js'));
-var cookHandlers = Alexa.CreateStateHandler(states.COOK, require('./handlers/RecipeHandlers.js'));
+var fridgeHandlers = Alexa.CreateStateHandler(states.FRIDGE_STATE, require('./handlers/FridgeHandlers.js'));
+var cookHandlers = Alexa.CreateStateHandler(states.COOK_STATE, require('./handlers/RecipeHandlers.js'));
 
 exports.handler = (event, context) => {
     const alexa = Alexa.handler(event, context);

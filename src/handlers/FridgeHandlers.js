@@ -7,7 +7,7 @@ var FridgeStateHandlers = {
         this.emit(":ask", "Welcome to the fridge.", "What would you like to do?");
     },
     "CookIntent": function() {
-        this.handler.state = states.COOK;
+        this.handler.state = states.COOK_STATE;
         this.emitWithState("Cook");
     },
     'GetWhatsInMyFridgeIntent': function () {
