@@ -15,7 +15,7 @@ var FridgeStateHandlers = {
     },
     'GetWhatsInMyFridgeIntent': function () {
         // Get ingredients from fridge
-        var allItems = FRIDGE.getItemsInFridge();
+        var allItems = this.attributes['fridgeList'];
         // Have Alexa echo out each ingredient
         var i = 0;
         var itemsStr = allItems.length == 0 ? "nothing" : "";
