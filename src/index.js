@@ -17,8 +17,7 @@ var handlers = {
             */
         }
         this.handler.state = states.START;
-        this.emit(':ask', 'Welcome to Snack Overflow. You look great today!',
-            'Would you like to open your fridge, start cooking, or quit?');
+        this.emitWithState('Start');
     }
 };
 

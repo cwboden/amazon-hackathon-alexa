@@ -3,6 +3,9 @@ var FRIDGE = require('../util/fridge')
 var STATES = require('../util/state')
 
 var StartHandlers = {
+    "Start": function() {
+        this.emit(":ask", "Welcome to Snack Overflow. Would you like to view your fridge or start cooking?", "Would you like to view your fridge or start cooking?");
+    },
     'FridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;
         this.emitWithState('DefaultFridgeIntent');
