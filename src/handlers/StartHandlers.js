@@ -1,10 +1,13 @@
 var Alexa = require('alexa-sdk');
-var FRIDGE = require('../util/fridge')
-var STATES = require('../util/state')
+var FRIDGE = require('../util/fridge');
+var STATES = require('../util/state');
+
+var START_WELCOME_MESSAGE = "Welcome to Snack Overflow.";
+var START_REPROMPT_MESSAGE = "Would you like to view your fridge or start cooking?";
 
 var StartHandlers = {
     "Start": function() {
-        this.emit(":ask", "Welcome to Snack Overflow. Would you like to view your fridge or start cooking?", "Would you like to view your fridge or start cooking?");
+        this.emit(":ask", START_WELCOME_MESSAGE + START_REPROMPT_MESSAGE, START_REPROMPT_MESSAGE);
     },
     'FridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;

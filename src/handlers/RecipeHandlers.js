@@ -2,12 +2,15 @@ var Alexa = require('alexa-sdk');
 var STATES = require('../util/state');
 var FRIDGE = require('../util/fridge');
 
+var COOK_WELCOME_MESSAGE = "Welcome to the kitchen.";
+var COOK_REPROMPT_MESSAGE = "Would you like me to suggest something to cook?";
+
 var RecipeStateHandlers = {
     "Cook": function() {
-        this.emit(":ask", "Welcome to cooking.", "What would you like to do?");
+        this.emit(":ask", COOK_WELCOME_MESSAGE, COOK_REPROMPT_MESSAGE);
     },
     "FridgeIntent": function() {
-        this.handler.state = states.FRIDGE_STATE;
+        this.handler.state = STATES.FRIDGE_STATE;
         this.emitWithState("Fridge");
     },
     'WhatShouldIMakeIntent': function () {
