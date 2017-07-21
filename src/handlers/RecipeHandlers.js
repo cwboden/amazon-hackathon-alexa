@@ -2,9 +2,13 @@ var Alexa = require('alexa-sdk');
 var STATES = require('../util/state');
 var FRIDGE = require('../util/fridge');
 
-var RecipeStateHandlers = Alexa.CreateStateHandler(STATES.RECIPE_STATE, {
-    'DefaultRecipeIntent': function () {
-        this.emit(":ask", "Let's get cooking.", "Should I pick a random recipe for you?");
+var RecipeStateHandlers = {
+    "Cook": function() {
+        this.emit(":ask", COOK_WELCOME_MESSAGE, COOK_HELP_MESSAGE);
+    },
+    "FridgeIntent": function() {
+        this.handler.state = states.FRIDGE;
+        this.emitWithState("Fridge");
     },
     'WhatShouldIMakeIntent': function () {
         // Get items from fridge
@@ -12,13 +16,18 @@ var RecipeStateHandlers = Alexa.CreateStateHandler(STATES.RECIPE_STATE, {
         // Pick random recipe based on ingredients
         // Have Alexa echo recipe name
     },
-    'OpenMyFridgeIntent': function () {
-        this.handler.state = STATES.FRIDGE_STATE;
-        this.emitWithState('DefaultFridgeIntent');
+    "AMAZON.StopIntent": function() {
+        this.emit(":tell", EXIT_MESSAGE);
     },
-    'Unhandled': function () {
-        //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
+    "AMAZON.CancelIntent": function() {
+        this.emit(":tell", EXIT_MESSAGE);
+    },
+    "AMAZON.HelpIntent": function() {
+        this.emit(":ask", HELP_MESSAGE, HELP_MESSAGE);
+    },
+    "Unhandled": function() {
+        this.emitWithState("Cook");
     }
-});
+};
 
 module.exports = RecipeStateHandlers;

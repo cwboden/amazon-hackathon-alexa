@@ -2,9 +2,13 @@ var Alexa = require('alexa-sdk');
 var STATES = require('../util/state');
 var FRIDGE = require('../util/fridge');
 
-var FridgeStateHandlers = Alexa.CreateStateHandler(STATES.FRIDGE_STATE, {
-    'DefaultFridgeIntent': function () {
-        this.emit(":ask", "Your fridge is open.", "Would you like to add, remove, or list the items in your fridge?");
+var FridgeStateHandlers = {
+    "Fridge": function() {
+        this.emit(":ask", FRIDGE_WELCOME_MESSAGE, FRIDGE_HELP_MESSAGE);
+    },
+    "CookIntent": function() {
+        this.handler.state = states.COOK;
+        this.emitWithState("Cook");
     },
     'GetWhatsInMyFridgeIntent': function () {
         // Get ingredients from fridge
@@ -39,13 +43,18 @@ var FridgeStateHandlers = Alexa.CreateStateHandler(STATES.FRIDGE_STATE, {
             FRIDGE.removeItemFromFridge(ingredient);
         }
     },
-    'StartCookingIntent': function () {
-        this.handler.state = STATES.RECIPE_STATE;
-        this.emitWithState('DefaultRecipeIntent');
+    "AMAZON.StopIntent": function() {
+        this.emit(":tell", EXIT_MESSAGE);
     },
-    'Unhandled': function () {
-        //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
+    "AMAZON.CancelIntent": function() {
+        this.emit(":tell", EXIT_MESSAGE);
+    },
+    "AMAZON.HelpIntent": function() {
+        this.emit(":ask", HELP_MESSAGE, HELP_MESSAGE);
+    },
+    "Unhandled": function() {
+        this.emitWithState("Fridge");
     }
-});
+}
 
 module.exports = FridgeStateHandlers;
