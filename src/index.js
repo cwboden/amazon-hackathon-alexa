@@ -9,8 +9,10 @@ var POSSIBLE_RECIPES = ['Chicken Parmesan', 'Spaghetti', 'Turkey Sandwich'];
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context, callback);
     alexa.state = STATES.START;
+    var startHandlers = require('./handlers/StartHandlers');
     alexa.registerHandlers(
-        require('./handlers/StartHandlers'),
+        startHandlers.StartHandlers,
+        startHandlers.newSessionHandlers,
         require('./handlers/FridgeHandlers'),
         require('./handlers/RecipeHandlers'),
         require('./handlers/AmazonDefaultHandlers'));
