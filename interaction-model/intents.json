@@ -1,34 +1,40 @@
 {
     "intents": [
 	{
-	    "intent": "IngredientsImUsing",
-	    "slots": [
-	      {
-	    	"name": "Ingredient",
-		"type": "LIST_OF_INGREDIENTS"
-	      }
-	    ]
+	    "intent": "GetWhatsInMyFridgeIntent"
 	},
 	{
-	    "intent": "InMyFridge",
+	    "intent": "AddToMyFridgeIntent",
 	    "slots": [
 	      {
-		"name": "Ingredient",
-		"type": "LIST_OF_INGREDIENTS"
+		"name": "Ingredients",
+		"type": "AMAZON.LITERAL"
 	      }
    	    ]
 	},
 	{
-	    "intent": "MyFavoriteRecipes",
+	    "intent": "RemoveIngredientIntent",
 	    "slots": [
 	      {
-		"name": "Recipe",
-		"type": "LIST_OF_RECIPES"
-    	      }
+		"name": "Ingredients",
+	     	"type": "AMAZON.LITERAL"
+	      }
 	    ]
 	},
 	{
-	    "intent": "WhatShouldIMakeIntent" 
+	    "intent": "WhatShouldIMakeIntent",
+	    "slots": [
+	      {
+		"name": "Ingredients",
+	    	"type": "AMAZON.LITERAL"
+	      }
+	    ]
+	},
+	{
+	    "intent": "ConfirmRecipeIntent"
+	},
+	{
+	    "intent": "DenyRecipeIntent"
 	}
     ]
 }
