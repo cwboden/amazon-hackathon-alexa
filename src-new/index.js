@@ -72,6 +72,39 @@ var fridgeHandlers = Alexa.CreateStateHandler(states.FRIDGE, {
         this.handler.state = states.COOK;
         this.emitWithState("Cook");
     },
+    'GetWhatsInMyFridgeIntent': function () {
+        // Get ingredients from fridge
+        var allItems = FRIDGE.getItemsInFridge();
+        // Have Alexa echo out each ingredient
+        var i = 0;
+        var itemsStr = allItems.length == 0 ? "nothing" : "";
+        for (; i < allItems.length - 1; i++) {
+            itemsStr += allItems[i] + ", ";
+        }
+        if (allItems.length >= 1) {
+            itemsStr += allItems.length == 1 ? allItems[0] : "and " + allItems[i];
+        }
+
+        this.echo(":tell", "In your fridge, you currently have " + itemsStr);
+    },
+    'AddToMyFridgeIntent': function () {
+        // Gather items to add to fridge
+        var ingredients = this.event.request.intent.slots.Ingredients.value.split(" ");
+        console.log(ingredients);
+        // Append to fridge object
+        for (var i = 0; i < ingredients.length; i++) {
+            FRIDGE.addItemToFridge(ingredient);
+        }
+    },
+    'RemoveFromMyFridgeIntent': function () {
+        // Gather items to remove
+        var ingredients = this.event.request.intent.slots.Ingredients.value.split(" ");
+        console.log(ingredients);
+        // Remove from fridge object
+        for (var i = 0; i < ingredients.length; i++) {
+            FRIDGE.removeItemFromFridge(ingredient);
+        }
+    },
     "AMAZON.StopIntent": function() {
         this.emit(":tell", EXIT_MESSAGE);
     },
@@ -93,6 +126,12 @@ var cookHandlers = Alexa.CreateStateHandler(states.COOK, {
     "FridgeIntent": function() {
         this.handler.state = states.FRIDGE;
         this.emitWithState("Fridge");
+    },
+    'WhatShouldIMakeIntent': function () {
+        // Get items from fridge
+        var possibleIngredients = FRIDGE.getItemsInFridge();
+        // Pick random recipe based on ingredients
+        // Have Alexa echo recipe name
     },
     "AMAZON.StopIntent": function() {
         this.emit(":tell", EXIT_MESSAGE);
