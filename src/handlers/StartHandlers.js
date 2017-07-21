@@ -3,11 +3,11 @@ var FRIDGE = require('../util/fridge')
 var STATES = require('../util/state')
 
 var StartHandlers = {
-    'OpenMyFridgeIntent': function () {
+    'FridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;
         this.emitWithState('DefaultFridgeIntent');
     },
-    'StartCookingIntent': function () {
+    'CookIntent': function () {
         this.handler.state = STATES.RECIPE_STATE;
         this.emitWithState('DefaultRecipeIntent');
     },
