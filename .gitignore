@@ -2,6 +2,6 @@ node_modules
 package-lock.json
 SnackOverflow.zip
 .DS_Store
-
+index.js
 !node_modules/spoonacular
 !node_modules/spoonacular/*
