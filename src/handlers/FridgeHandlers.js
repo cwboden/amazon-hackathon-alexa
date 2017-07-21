@@ -27,12 +27,12 @@ var FridgeStateHandlers = {
     },
     'AddToMyFridgeIntent': function () {
         // Gather items to add to fridge
-        var ingredients = this.event.request.intent.slots.Ingredients.value.split(" ");
-        console.log(ingredients);
+        var ingredient = this.event.request.intent.slots.Ingredients.value;
+        console.log(ingredient);
         // Append to fridge object
-        for (var i = 0; i < ingredients.length; i++) {
-            FRIDGE.addItemToFridge(ingredient);
-        }
+        if (!this.attributes['fridgeList']) this.attributes['fridgeList'] = [];
+        this.attributes['fridgeList'].push(ingredient);
+        this.echo(":tell", "Added " + ingredient + " to your fridge.");
     },
     'RemoveFromMyFridgeIntent': function () {
         // Gather items to remove
