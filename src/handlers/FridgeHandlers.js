@@ -41,7 +41,7 @@ var FridgeStateHandlers = Alexa.CreateStateHandler(STATES.FRIDGE_STATE, {
     },
     'StartCookingIntent': function () {
         this.handler.state = STATES.RECIPE_STATE;
-        this.emit('DefaultRecipeIntent');
+        this.emitWithState('DefaultRecipeIntent');
     },
     'Unhandled': function () {
         //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');

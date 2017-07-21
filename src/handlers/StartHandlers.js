@@ -21,11 +21,11 @@ var newSessionHandlers = {
 var StartHandlers = Alexa.CreateStateHandler(STATES.START, {
     'OpenMyFridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;
-        this.emit('DefaultFridgeIntent');
+        this.emitWithState('DefaultFridgeIntent');
     },
     'StartCookingIntent': function () {
         this.handler.state = STATES.RECIPE_STATE;
-        this.emit('DefaultRecipeIntent');
+        this.emitWithState('DefaultRecipeIntent');
     },
     'Unhandled': function () {
         //this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
