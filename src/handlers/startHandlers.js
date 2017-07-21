@@ -5,7 +5,7 @@ var StartHandlers = Alexa.CreateStateHandler(STATES.START, {
     'OpenMyFridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;
     },
-    'FindARecipeIntent': function () {
+    'StartCookingIntent': function () {
         this.handler.state = STATES.RECIPE_STATE;
     },
     'Unhandled': function () {
