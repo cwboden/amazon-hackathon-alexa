@@ -1,3 +1,25 @@
+OpenMyFridgeIntent open my fridge
+OpenMyFridgeIntent go to my fridge
+OpenMyFridgeIntent i would like to add ingredients
+OpenMyFridgeIntent fridge
+OpenMyFridgeIntent add ingredients
+OpenMyFridgeIntent add ingredients to my fridge
+OpenMyFridgeIntent open the fridge
+OpenMyFridgeIntent got to the fridge
+OpenMyFridgeIntent i would like to open my fridge
+OpenMyFridgeIntent i would like to go to my fridge
+OpenMyFridgeIntent i would like to go to the fride
+OpenMyFridgeIntent i would like to open the fridge
+
+GetWhatsInMyFridgeIntent what's in my fridge
+GetWhatsInMyFridgeIntent what is in my fridge
+GetWhatsInMyFridgeIntent what is in the fridge
+GetWhatsInMyFridgeIntent what's in the fridge
+GetWhatsInMyFridgeIntent tell me what i have in my fridge
+GetWhatsInMyFridgeIntent what do i have in my fridge
+GetWhatsInMyFridgeIntent tell me what's in the fridge
+GetWhatsInMyFridgeIntent tell mew what is in the fridge
+
 WhatShouldIMakeIntent what should i make
 WhatShouldIMakeIntent what should i make this morning
 WhatShouldIMakeIntent what should i make today
@@ -67,12 +89,12 @@ WhatShouldIMakeIntent what would i like making today
 WhatShouldIMakeIntent what would i like making tonight
 WhatShouldIMakeIntent what would i like making tomorrow
 WhatShouldIMakeIntent what would i like making right now
-WhatShouldIMakeIntent what would i like cooking
-WhatShouldIMakeIntent what would i like cooking this morning
-WhatShouldIMakeIntent what would i like cooking today
-WhatShouldIMakeIntent what would i like cooking tonight
-WhatShouldIMakeIntent what would i like cooking tomorrow
-WhatShouldIMakeIntent what would i like cooking right now
+WhatShouldIMakeIntent what would i like to cook
+WhatShouldIMakeIntent what would i like to cook this morning
+WhatShouldIMakeIntent what would i like to cook today
+WhatShouldIMakeIntent what would i like to cook tonight
+WhatShouldIMakeIntent what would i like to cook tomorrow
+WhatShouldIMakeIntent what would i like to cook right now
 WhatShouldIMakeIntent what would i like to have
 WhatShouldIMakeIntent what would i like to have this morning
 WhatShouldIMakeIntent what would i like to have today
@@ -165,3 +187,68 @@ WhatShouldIMakeIntent what can i make tomorrow with these ingredients
 WhatShouldIMakeIntent what can i make with these ingredients tomorrow
 WhatShouldIMakeIntent what can i make right now with these ingredients
 WhatShouldIMakeIntent what can i make with these ingredients right now
+WhatShouldIMakeIntent what can i make with {Ingredients}
+WhatShouldIMakeIntent what should i make with {Ingredients}
+WhatShouldIMakeIntent what can i cook with {Ingredients}
+WhatShouldIMakeIntent what should i cook with {Ingredients}
+WhatShouldIMakeIntent what's the best recipe for {Ingredients}
+WhatShouldIMakeIntent what is good to make with {Ingredients}
+WhatShouldIMakeIntent what's good to make with {Ingredients}
+WhatShouldIMakeIntent what should i cook for dinner
+WhatShouldIMakeIntent what should i cook for dinner tonight
+WhatShouldIMakeIntent what should i cook for dinner today
+WhatShouldIMakeIntent what should i cook for dinner right now
+WhatShouldIMakeIntent what should i cook for dinner later
+WhatShouldIMakeIntent what should i cook for dinner later today
+WhatShouldIMakeIntent what should i cook for dinner later tonight
+WhatShouldIMakeIntent what should i cook for lunch
+WhatShouldIMakeIntent what should i cook for breakfast
+WhatShouldIMakeIntent what can i cook for dinner
+WhatShouldIMakeIntent what can i cook for dinner tonight
+WhatShouldIMakeIntent what can i cook for dinner today
+WhatShouldIMakeIntent what can i cook for dinner right now
+WhatShouldIMakeIntent what can i cook for dinner later
+WhatShouldIMakeIntent what can i cook for dinner later today
+WhatShouldIMakeIntent what can i cook for dinner later tonight
+WhatShouldIMakeIntent what can i cook for lunch
+WhatShouldIMakeIntent what can i cook for lunch right now
+WhatShouldIMakeIntent what can i cook for lunch today
+WhatShouldIMakeIntent what can i cook for lunch later today
+WhatShouldIMakeIntent what can i cook for lunch later
+WhatShouldIMakeIntent what can i cook for breakfast
+WhatShouldIMakeIntent what can i cook for breakfast right now
+WhatShouldIMakeIntent what can i cook for breakfast later
+WhatShouldIMakeIntent what can i cook for breakfast today
+WhatShouldIMakeIntent what can i cook for breakfast later today
+WhatShouldIMakeIntent i've got {Ingredients} what can i make
+WhatShouldIMakeIntent with {Ingredients} what can i make
+WhatShouldIMakeIntent i've got {Ingredients} what can i cook
+WhatShouldIMakeIntent with {Ingredients} what can i cook
+
+YesIntent yes
+YesIntent sure
+YesIntent yes please
+YesIntent of course
+YesIntent yeah
+YesIntent yup
+YesIntent yes i would
+YesIntent i'm ready
+YesIntent let's start
+YesIntent let's go
+
+NoIntent no
+NoIntent nope
+NoIntent not yet
+NoIntent hold on
+NoIntent i'm not ready
+NoIntent no i'm not ready
+
+StartCookingIntent i'm ready to start cooking
+StartCookingIntent let's start cooking
+StartCookingIntent start cooking
+StartCookingIntent find me a recipe
+StartCookingIntent time to start cooking
+StartCookingIntent let's get going
+StartCookingIntent find a recipe
+StartCookingIntent cooking
+StartCookingIntent recipe
