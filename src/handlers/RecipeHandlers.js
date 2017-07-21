@@ -4,7 +4,7 @@ var FRIDGE = require('../util/fridge');
 
 var RecipeStateHandlers = {
     "Cook": function() {
-        this.emit(":ask", COOK_WELCOME_MESSAGE, COOK_HELP_MESSAGE);
+        this.emit(":ask", "Welcome to cooking.", "What would you like to do?");
     },
     "FridgeIntent": function() {
         this.handler.state = states.FRIDGE;

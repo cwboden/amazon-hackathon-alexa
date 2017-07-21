@@ -20,10 +20,4 @@ var StartHandlers = {
 
 }
 
-function suggestRecipe() {
-    this.handler.currentRecipe = getRandomRecipe();
-
-    this.emit(':tell', "Would you like to make " + this.handler.currentRecipe.recipes.title);
-}
-
 module.exports = StartHandlers;
