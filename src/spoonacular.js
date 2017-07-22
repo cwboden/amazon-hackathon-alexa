@@ -14,7 +14,7 @@ function SearchByIngredients(queries, callback) {
             var data = response.body;
             console.log(data);
             if (response.statusCode == 200) {
-                callback(sampleRecipe);
+                callback(sampleRecipe.recipies);
             } else {
                 console.log('Failed response');
             }
@@ -51,7 +51,7 @@ function instructionList(recipe) {
 }
 
 var sampleRecipe = {
-  [
+  "recipes": [
     {
       "vegetarian": false,
       "vegan": false,
