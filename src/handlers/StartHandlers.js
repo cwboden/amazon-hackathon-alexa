@@ -8,10 +8,10 @@ var STARTOVER_REPROMPT_MESSAGE = "If you'd like to make something else, now's th
 
 var StartHandlers = {
     "Start": function() {
-        this.emit(":ask", START_WELCOME_MESSAGE + START_REPROMPT_MESSAGE, START_REPROMPT_MESSAGE);
+        this.emit(":ask", START_WELCOME_MESSAGE + " " + START_REPROMPT_MESSAGE, START_REPROMPT_MESSAGE);
     },
     "Startover": function () {
-        this.emit(":ask", STARTOVER_WELCOME_MESSAGE + STARTOVER_REPROMPT_MESSAGE, STARTOVER_REPROMPT_MESSAGE);
+        this.emit(":ask", STARTOVER_WELCOME_MESSAGE + " " + STARTOVER_REPROMPT_MESSAGE, STARTOVER_REPROMPT_MESSAGE);
     },
     'FridgeIntent': function () {
         this.handler.state = STATES.FRIDGE_STATE;
