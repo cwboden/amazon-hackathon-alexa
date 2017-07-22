@@ -11,11 +11,10 @@ function SearchByIngredients(queries, callback) {
     return unirest.get(url)
         .header("X-Mashape-Key", "r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2")
         .header("Accept", "application/json")
-        .end(function(response, error) {
-            console.log(response);
+        .end(function(response) {
             var data = response.body;
             console.log(data);
-            if (!error && response.statusCode == 200) {
+            if (response.statusCode == 200) {
                 callback(data.results);
             } else {
                 console.log('Failed response');
