@@ -12,7 +12,8 @@ function SearchByIngredients(queries, callback) {
         .header("X-Mashape-Key", "r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2")
         .header("Accept", "application/json")
         .end(function(response, error) {
-            var data = response.body.data;
+            console.log(response);
+            var data = response.body;
             console.log(data);
             if (!error && response.statusCode == 200) {
                 callback(data.results);
