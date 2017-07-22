@@ -25,10 +25,15 @@ var RecipeStateHandlers = {
     },
     "YesIntent": function () {
         // User wants to cook recipe. Start listing steps.
+        if (!this.attributes['stepCounter']) this.attributes['stepCounter'] = 0;
+        else this.attributes['stepCounter']++;
+
         var steps = spoonacular.instructionList(this.attributes['recipe']);
-        for (var i = 0; i < steps.length; i++) {
-            this.emit(":tell", steps[i]);
-        }
+        this.emit(":tell", steps[this.attributes['stepCounter']);
+    },
+    "RepeatIntent": function () {
+        var steps = spoonacular.instructionList(this.attributes['recipe']);
+        this.emit(":tell", steps[this.attributes['stepCounter']);
     },
     "NoIntent": function () {
         // User wants to try a different recipe. Try again.
