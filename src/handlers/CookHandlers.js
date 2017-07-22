@@ -21,7 +21,7 @@ var RecipeStateHandlers = {
         var that = this;
         // Pick random recipe based on ingredients
         spoonacular.SearchByIngredients(possibleIngredients, function(results) {
-            if (!results.length) {
+            if (!results) {
                 that.emit(":tell", "I can't find anything to cook with the ingredients in your fridge.");
             }
             else {

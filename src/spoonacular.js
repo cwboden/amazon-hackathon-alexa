@@ -14,7 +14,7 @@ function SearchByIngredients(queries, callback) {
             var data = response.body;
             console.log(data);
             if (response.statusCode == 200) {
-                callback(sampleRecipe.recipies);
+                callback(sampleRecipe.recipes);
             } else {
                 console.log('Failed response');
             }
