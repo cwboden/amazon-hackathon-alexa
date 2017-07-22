@@ -24,16 +24,25 @@ var RecipeStateHandlers = {
         this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
     },
     "YesIntent": function () {
+        if (!this.attributes['recipe']) {
+            this.emit('WhatShouldIMakeIntent');
+        }
         // User wants to cook recipe. Start listing steps.
-        if (!this.attributes['stepCounter']) this.attributes['stepCounter'] = 0;
-        else this.attributes['stepCounter']++;
+        if (!this.attributes['stepCounter']) {
+            this.attributes['stepCounter'] = 0;
+        } else {
+            this.attributes['stepCounter']++;
+        }
 
         var steps = spoonacular.instructionList(this.attributes['recipe']);
-        this.emit(":tell", steps[this.attributes['stepCounter']);
+        this.emit(":tell", steps[this.attributes['stepCounter']]);
     },
     "RepeatIntent": function () {
+        if (!this.attributes['recipe']) {
+            this.emit('WhatShouldIMakeIntent');
+        }
         var steps = spoonacular.instructionList(this.attributes['recipe']);
-        this.emit(":tell", steps[this.attributes['stepCounter']);
+        this.emit(":tell", steps[this.attributes['stepCounter']]);
     },
     "NoIntent": function () {
         // User wants to try a different recipe. Try again.
