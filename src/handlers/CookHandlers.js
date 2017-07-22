@@ -3,12 +3,14 @@ var FRIDGE = require('../util/fridge');
 
 var COOK_WELCOME_MESSAGE = "Welcome to the kitchen.";
 var COOK_REPROMPT_MESSAGE = "Would you like me to suggest something to cook?";
+var RECOMMENDED_RECIPE_MESSAGE = "How about making ";
+var RECOMMENDED_RECIPE_REPROMPT = "Say yes to begin cooking or no to pick another recipe.";
 
 var RecipeStateHandlers = {
-    "Cook": function() {
+    "Cook": function () {
         this.emit(":ask", COOK_WELCOME_MESSAGE, COOK_REPROMPT_MESSAGE);
     },
-    "FridgeIntent": function() {
+    "FridgeIntent": function () {
         this.handler.state = STATES.FRIDGE_STATE;
         this.emitWithState("Fridge");
     },
@@ -16,7 +18,16 @@ var RecipeStateHandlers = {
         // Get items from fridge
         var possibleIngredients = FRIDGE.getItemsInFridge();
         // Pick random recipe based on ingredients
+        // var recipe = spoonacular.getRandomRecipe(possibleIngredients);
         // Have Alexa echo recipe name
+        // this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + recipe.title, RECOMMENDED_RECIPE_REPROMPT);
+    },
+    "AMAZON.YesIntent": function () {
+        // User wants to cook recipe. Start listing steps.
+    },
+    "AMAZON.NoIntent": function () {
+        // User wants to try a different recipe. Try again.
+        this.emit('WhatShouldIMakeIntent');
     },
     "AMAZON.StopIntent": function() {
         this.emit(":tell", EXIT_MESSAGE);
