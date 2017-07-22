@@ -25,7 +25,7 @@ var FridgeStateHandlers = {
             itemsStr += allItems.length == 1 ? allItems[0] : "and " + allItems[i];
         }
 
-        this.emit(":tell", "In your fridge, you currently have " + itemsStr);
+        this.emit(":ask", "In your fridge, you currently have " + itemsStr, 'Anything else you want to do in the fridge?');
     },
     'AddToMyFridgeIntent': function () {
         // Get item to add to fridge
@@ -36,12 +36,12 @@ var FridgeStateHandlers = {
 
         // Check for existing item
         if (fridgeList.indexOf(ingredient) > -1) {
-            this.emit(":tell", "You already have " + ingredient + " in your fridge.");
+            this.emit(":ask", "You already have " + ingredient + " in your fridge.", 'I hate my life');
         }
         else {
             // Add to fridge list
             fridgeList.push(ingredient);
-            this.emit(":tell", "Added " + ingredient + " to your fridge.");
+            this.emit(":ask", "Added " + ingredient + " to your fridge.", 'I hate this');
         }
     },
     'RemoveFromMyFridgeIntent': function () {
@@ -54,10 +54,10 @@ var FridgeStateHandlers = {
         var index = fridgeList.indexOf(ingredient);
         if (index > -1) {
             fridgeList.splice(index, 1);
-            this.emit(":tell", "Removed " + ingredient + " from your fridge.");
+            this.emit(":ask", "Removed " + ingredient + " from your fridge.", 'you got it boss');
         }
         else {
-            this.emit(":tell", "You don't have " + ingredient + " in your fridge.");
+            this.emit(":ask", "You don't have " + ingredient + " in your fridge.", 'get me out of here');
         }
     },
     "AMAZON.StopIntent": function() {
