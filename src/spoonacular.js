@@ -7,7 +7,7 @@ var MASHAPE_KEY = 'r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2';
 function SearchByIngredients(queries) {
     var ingredients = queries.join('+');
     var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" +
-                "search?instructionsRequired=true&limitLicense=false&number=3&offset=0&query=" +
+                "search?instructionsRequired=true&limitLicense=false&number=1&offset=0&query=" +
                 ingredients + "&type=main+course";
 
     return unirest.get(url)
