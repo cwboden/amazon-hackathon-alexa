@@ -36,7 +36,7 @@ var RecipeStateHandlers = {
             this.attributes['stepCounter']++;
         }
 
-        this.emit(":tell", this.attributes['steps'][this.attributes['stepCounter']]);
+        this.emit(":tell", this.attributes['recipeSteps'][this.attributes['stepCounter']]);
     },
     "RepeatIntent": function () {
         if (!this.attributes['recipe']) {
