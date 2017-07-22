@@ -19,9 +19,11 @@ var RecipeStateHandlers = {
         // Get items from fridge
         var possibleIngredients = this.attributes['fridgeList'];
         // Pick random recipe based on ingredients
-        this.attributes['recipe'] = spoonacular.SearchByIngredients(possibleIngredients).recipes[0];
-        // Have Alexa echo recipe name
-        this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
+        spoonacular.SearchByIngredients(possibleIngredients, function(result) {
+            this.attributes['recipe'] = result.recipes[0];
+            // Have Alexa echo recipe name
+            this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
+        });
     },
     "YesIntent": function () {
         if (!this.attributes['recipe']) {
