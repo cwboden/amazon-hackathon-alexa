@@ -27,7 +27,7 @@ var RecipeStateHandlers = {
             else {
                 that.attributes['recipe'] = results[0];
                 // Have Alexa echo recipe name
-                that.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
+                that.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + that.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
             }
         });
     },
