@@ -15,7 +15,7 @@ function SearchByIngredients(queries, callback) {
             var data = response.body.data;
             console.log(response);
             console.log(data);
-            if (!error && response.statusCode == 200 && data != null && data != undefined) {
+            if (!error && response.statusCode == 200) {
                 callback(data);
             } else {
                 console.log('Failed response');
