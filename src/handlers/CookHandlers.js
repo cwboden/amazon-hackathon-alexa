@@ -42,7 +42,7 @@ var RecipeStateHandlers = {
             this.emit('WhatShouldIMakeIntent');
         }
         var steps = spoonacular.instructionList(this.attributes['recipe']);
-        this.emit(":tell", steps[this.attributes['stepCounter']);
+        this.emit(":tell", steps[this.attributes['stepCounter']]);
     },
     "NoIntent": function () {
         // User wants to try a different recipe. Try again.
