@@ -1,9 +1,6 @@
 var unirest = require('unirest');
 var MASHAPE_KEY = 'r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2';
 
-var unirest = require('unirest');
-var MASHAPE_KEY = 'r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2';
-
 function SearchByIngredients(queries) {
     var ingredients = queries.join('+');
     var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" +
