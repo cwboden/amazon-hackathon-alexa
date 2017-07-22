@@ -20,8 +20,6 @@ function SearchByIngredients(queries, callback) {
             }
     });
 
-    return sampleRecipe;
-
 }
 
 function getRandomRecipe(callback) {

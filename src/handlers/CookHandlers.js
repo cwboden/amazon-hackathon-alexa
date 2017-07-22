@@ -19,8 +19,8 @@ var RecipeStateHandlers = {
         // Get items from fridge
         var possibleIngredients = this.attributes['fridgeList'];
         // Pick random recipe based on ingredients
-        spoonacular.SearchByIngredients(possibleIngredients, function(result) {
-            this.attributes['recipe'] = result.recipes[0];
+        spoonacular.SearchByIngredients(possibleIngredients, function(results) {
+            this.attributes['recipe'] = results[0];
             // Have Alexa echo recipe name
             this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
         });
