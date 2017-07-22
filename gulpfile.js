@@ -17,4 +17,6 @@ gulp.task('zip', function() {
         .pipe(gulp.dest('.'));
 });
 
-gulp.task('default', sequence('scripts', 'zip'));
+gulp.task('default', function() {
+    sequence('scripts', 'zip')
+});
