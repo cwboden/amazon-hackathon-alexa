@@ -35,7 +35,7 @@ var RecipeStateHandlers = {
         }
 
         var steps = spoonacular.instructionList(this.attributes['recipe']);
-        this.emit(":tell", steps[this.attributes['stepCounter']);
+        this.emit(":tell", steps[this.attributes['stepCounter']]);
     },
     "RepeatIntent": function () {
         if (!this.attributes['recipe']) {
