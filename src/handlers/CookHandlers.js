@@ -32,6 +32,8 @@ var RecipeStateHandlers = {
             var steps = spoonacular.instructionList(this.attributes['recipe']);
             this.attributes['stepCounter'] = 0;
             this.attributes['recipeSteps'] = steps;
+        } else if (this.attributes['stepCounter'] >= this.attributes['recipeSteps'].length) {
+            this.emitWithState("Startover");
         } else {
             this.attributes['stepCounter']++;
         }
