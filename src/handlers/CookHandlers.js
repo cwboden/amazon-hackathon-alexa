@@ -23,7 +23,7 @@ var RecipeStateHandlers = {
         // Have Alexa echo recipe name
         this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
     },
-    "AMAZON.YesIntent": function () {
+    "YesIntent": function () {
 
         var steps = instructionList(this.attributes['recipe']);
         for (var i = 0; i < steps.length; i++) {
@@ -31,7 +31,7 @@ var RecipeStateHandlers = {
         }
         // User wants to cook recipe. Start listing steps.
     },
-    "AMAZON.NoIntent": function () {
+    "NoIntent": function () {
         // User wants to try a different recipe. Try again.
         this.emit('WhatShouldIMakeIntent');
     },
