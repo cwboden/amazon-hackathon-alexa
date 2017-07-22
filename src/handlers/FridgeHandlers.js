@@ -53,7 +53,7 @@ var FridgeStateHandlers = {
         var fridgeList = this.attributes['fridgeList'];
         var index = fridgeList.indexOf(ingredient);
         if (index > -1) {
-            this.attributes['fridgeList'] = fridgeList.splice(index, 1);
+            fridgeList.splice(index, 1);
             this.emit(":tell", "Removed " + ingredient + " from your fridge.");
         }
         else {

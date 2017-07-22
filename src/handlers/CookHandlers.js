@@ -7,8 +7,6 @@ var COOK_REPROMPT_MESSAGE = "Would you like me to suggest something to cook?";
 var RECOMMENDED_RECIPE_MESSAGE = "How about making ";
 var RECOMMENDED_RECIPE_REPROMPT = "Say yes to begin cooking or no to pick another recipe.";
 
-var currentRecipe;
-
 var RecipeStateHandlers = {
     "Cook": function () {
         this.emit(":ask", COOK_WELCOME_MESSAGE, COOK_REPROMPT_MESSAGE);
@@ -21,11 +19,16 @@ var RecipeStateHandlers = {
         // Get items from fridge
         var possibleIngredients = this.attributes['fridgeList'];
         // Pick random recipe based on ingredients
-        currentRecipe = spoonacular.SearchByIngredients(possibleIngredients);
+        this.attributes['recipe'] = spoonacular.SearchByIngredients(possibleIngredients);
         // Have Alexa echo recipe name
-        this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + currentRecipe.title, RECOMMENDED_RECIPE_REPROMPT);
+        this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].recipes.title, RECOMMENDED_RECIPE_REPROMPT);
     },
     "AMAZON.YesIntent": function () {
+
+        var steps = instructionList(this.attributes['recipe']);
+        for (var i = 0; i < steps.length; i++) {
+            this.emit(":tell", steps[i]);
+        }
         // User wants to cook recipe. Start listing steps.
     },
     "AMAZON.NoIntent": function () {
