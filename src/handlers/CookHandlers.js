@@ -25,7 +25,7 @@ var RecipeStateHandlers = {
     },
     "YesIntent": function () {
 
-        var steps = instructionList(this.attributes['recipe']);
+        var steps = spoonacular.instructionList(this.attributes['recipe']);
         for (var i = 0; i < steps.length; i++) {
             this.emit(":tell", steps[i]);
         }
