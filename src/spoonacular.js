@@ -204,3 +204,5 @@ var sampleRecipe = {
     }
   ]
 }
+
+module.exports = { instructionList, ingredientList, getRandomRecipe, SearchByIngredients };
