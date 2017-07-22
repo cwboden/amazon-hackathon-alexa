@@ -13,10 +13,9 @@ function SearchByIngredients(queries, callback) {
         .header("Accept", "application/json")
         .end(function(response, error) {
             var data = response.body.data;
-            console.log(response);
             console.log(data);
             if (!error && response.statusCode == 200) {
-                callback(data);
+                callback(data.results);
             } else {
                 console.log('Failed response');
             }
