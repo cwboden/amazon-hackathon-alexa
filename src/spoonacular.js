@@ -2,7 +2,6 @@ var unirest = require('unirest');
 var MASHAPE_KEY = 'r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2';
 
 function SearchByIngredients(queries, callback) {
-
     var ingredients = queries.join('+');
     var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" +
                 "search?instructionsRequired=true&limitLicense=false&number=1&offset=0&query=" +
@@ -15,12 +14,11 @@ function SearchByIngredients(queries, callback) {
             var data = response.body;
             console.log(data);
             if (response.statusCode == 200) {
-                callback(data.results);
+                callback(sampleRecipe);
             } else {
                 console.log('Failed response');
             }
     });
-
 }
 
 function getRandomRecipe(callback) {
@@ -53,7 +51,7 @@ function instructionList(recipe) {
 }
 
 var sampleRecipe = {
-  "recipes": [
+  [
     {
       "vegetarian": false,
       "vegan": false,
