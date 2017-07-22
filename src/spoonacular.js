@@ -1,18 +1,45 @@
 var unirest = require('unirest');
-
 var MASHAPE_KEY = 'r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2';
 
-var RandomRecipe = unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=1")
-                    .header("X-Mashape-Key", MASHAPE_KEY)
-                    .header("Accept", "application/json")
-                    .end(function (result) {
-                      console.log(result.status, result.headers, result.body);
-                    });
+var unirest = require('unirest');
+var MASHAPE_KEY = 'r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2';
+
+function SearchByIngredients(queries) {
+    var ingredients = queries.join('+');
+    var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" +
+                "search?instructionsRequired=true&limitLicense=false&number=3&offset=0&query=" +
+                ingredients + "&type=main+course";
+
+    return unirest.get(url)
+        .header("X-Mashape-Key", "r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2")
+        .header("Accept", "application/json")
+        .end(function (result) {
+          console.log(result.status, result.headers, result.body);
+    });
+}
 
 function getRandomRecipe() {
-    var returnRecipe = sampleRecipe; // RandomRecipe();
-    returnRecipe.recipes.instructions = sampleRecipe.recipes.instructions.split(".");
-    return returnRecipe;
+    return unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=1")
+                        .header("X-Mashape-Key", MASHAPE_KEY)
+                        .header("Accept", "application/json")
+                        .end(function (result) {
+                          console.log(result.status, result.headers, result.body);
+                        });
+}
+
+function ingredientList(recipe) {
+    var list = [];
+
+    for(var i = 0; i < recipe.recipes.extendedIngredients.length; i++) {
+        var item = recipe.recipes.extendedIngredients[i];
+        list.push(item.amount + ' ' + item.unit + ' ' + item.name);
+    }
+
+    return list;
+}
+
+function instructionList(recipe) {
+    return recipe.recipes.instructions.split('.');
 }
 
 var sampleRecipe = {
