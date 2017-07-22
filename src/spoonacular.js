@@ -3,22 +3,24 @@ var MASHAPE_KEY = 'r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2';
 
 function SearchByIngredients(queries) {
 
-    var ingredients = queries.join('+');
-    var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" +
-                "search?instructionsRequired=true&limitLicense=false&number=1&offset=0&query=" +
-                ingredients + "&type=main+course";
+    // var ingredients = queries.join('+');
+    // var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" +
+    //             "search?instructionsRequired=true&limitLicense=false&number=1&offset=0&query=" +
+    //             ingredients + "&type=main+course";
+    //
+    // return unirest.get(url)
+    //     .header("X-Mashape-Key", "r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2")
+    //     .header("Accept", "application/json")
+    //     .end(function(response, error) {
+    //         var data = response.body.data;
+    //         if (!error && response.statusCode == 200) {
+    //             callback(returnData(data));
+    //         } else {
+    //             console.log('Failed response');
+    //         }
+    // });
 
-    return unirest.get(url)
-        .header("X-Mashape-Key", "r2fsWqchjGmshJwpRUP74Rc5uhPpp1ZqUBfjsnwMgkAUfqluM2")
-        .header("Accept", "application/json")
-        .end(function(response, error) {
-            var data = response.body.data;
-            if (!error && response.statusCode == 200) {
-                callback(returnData(data));
-            } else {
-                console.log('Failed response');
-            }
-    });
+    return sampleRecipe;
 
 }
 
