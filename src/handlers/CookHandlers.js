@@ -24,12 +24,11 @@ var RecipeStateHandlers = {
         this.emit(":ask", RECOMMENDED_RECIPE_MESSAGE + this.attributes['recipe'].title, RECOMMENDED_RECIPE_REPROMPT);
     },
     "YesIntent": function () {
-
+        // User wants to cook recipe. Start listing steps.
         var steps = spoonacular.instructionList(this.attributes['recipe']);
         for (var i = 0; i < steps.length; i++) {
             this.emit(":tell", steps[i]);
         }
-        // User wants to cook recipe. Start listing steps.
     },
     "NoIntent": function () {
         // User wants to try a different recipe. Try again.

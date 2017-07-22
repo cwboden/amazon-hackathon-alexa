@@ -39,7 +39,7 @@ function ingredientList(recipe) {
 }
 
 function instructionList(recipe) {
-    return recipe.recipes.instructions.split('.');
+    return recipe.instructions.split('.');
 }
 
 var sampleRecipe = {
