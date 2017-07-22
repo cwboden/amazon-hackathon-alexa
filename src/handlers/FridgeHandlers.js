@@ -47,7 +47,7 @@ var FridgeStateHandlers = {
     'RemoveFromMyFridgeIntent': function () {
         // Gather items to remove
         var ingredient = this.event.request.intent.slots.Ingredients.value;
-        console.log(ingredients);
+        console.log(ingredient);
         // Remove from fridge object
         if(this.attributes['fridgeList'] === undefined) this.attributes['fridgeList'] = [];
         var fridgeList = this.attributes['fridgeList'];
